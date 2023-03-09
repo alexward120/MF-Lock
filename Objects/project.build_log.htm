@@ -1,0 +1,149 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Diego Jerez, UC Santa Barbara, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Users\djere\Classes\_CS Projects for School\ece153a\Lab6\L6A\project.uvprojx
+Project File Date:  03/01/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+src/main.c(9): warning: In file included from...
+src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+src/main.c(11): warning: no previous prototype for function 'GPIO_Init' [-Wmissing-prototypes]
+void GPIO_Init(void){   
+     ^
+src/main.c(11): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void GPIO_Init(void){   
+^
+static 
+src/main.c(24): warning: no previous prototype for function 'delay' [-Wmissing-prototypes]
+void delay(void) {
+     ^
+src/main.c(24): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void delay(void) {
+^
+static 
+src/main.c(28): warning: no previous prototype for function 'Power_North' [-Wmissing-prototypes]
+void Power_North(void) {
+     ^
+src/main.c(28): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Power_North(void) {
+^
+static 
+src/main.c(34): warning: no previous prototype for function 'Power_South' [-Wmissing-prototypes]
+void Power_South(void) {
+     ^
+src/main.c(34): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Power_South(void) {
+^
+static 
+src/main.c(41): warning: no previous prototype for function 'Power_East' [-Wmissing-prototypes]
+void Power_East(void) {
+     ^
+src/main.c(41): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Power_East(void) {
+^
+static 
+src/main.c(47): warning: no previous prototype for function 'Power_West' [-Wmissing-prototypes]
+void Power_West(void) {
+     ^
+src/main.c(47): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Power_West(void) {
+^
+static 
+src/main.c(53): warning: no previous prototype for function 'Depower_Horizontal' [-Wmissing-prototypes]
+void Depower_Horizontal(void) {
+     ^
+src/main.c(53): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Depower_Horizontal(void) {
+^
+static 
+src/main.c(59): warning: no previous prototype for function 'Depower_Vertical' [-Wmissing-prototypes]
+void Depower_Vertical(void) {
+     ^
+src/main.c(59): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Depower_Vertical(void) {
+^
+static 
+src/main.c(66): warning: no previous prototype for function 'Full_Stepping_Clockwise' [-Wmissing-prototypes]
+void Full_Stepping_Clockwise(void){
+     ^
+src/main.c(66): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Full_Stepping_Clockwise(void){
+^
+static 
+src/main.c(86): warning: no previous prototype for function 'Full_Stepping_CounterClockwise' [-Wmissing-prototypes]
+void Full_Stepping_CounterClockwise(void){
+     ^
+src/main.c(86): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Full_Stepping_CounterClockwise(void){
+^
+static 
+src/main.c(106): warning: no previous prototype for function 'Half_Stepping_Clockwise' [-Wmissing-prototypes]
+void Half_Stepping_Clockwise(void){
+     ^
+src/main.c(106): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Half_Stepping_Clockwise(void){
+^
+static 
+src/main.c(136): warning: no previous prototype for function 'Half_Stepping_CounterClockwise' [-Wmissing-prototypes]
+void Half_Stepping_CounterClockwise(void){
+     ^
+src/main.c(136): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Half_Stepping_CounterClockwise(void){
+^
+static 
+13 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=840 RO-data=408 RW-data=0 ZI-data=1632  
+FromELF: creating hex file...
+".\Objects\project.axf" - 0 Error(s), 13 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32L4xx_DFP.2.6.1.pack
+                Keil.STM32L4xx_DFP.2.6.1
+                STMicroelectronics STM32L4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
+  C:/Users/djere/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/djere/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
