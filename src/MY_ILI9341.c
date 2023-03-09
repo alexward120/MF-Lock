@@ -289,6 +289,29 @@ const unsigned char font1[] = {
 	0x00, 0x00, 0x00, 0x00, 0x00  
 };
 
+/*Pinout: 
+	
+1 VCC LCD power supply is positive (3.3V~5V)
+2 GND LCD Power ground
+
+3 CS LCD selection control signal														pb2
+4 RESET LCD reset control signal														pb11
+5 DC/RS LCD register / data selection control signal				pb12
+
+6 SDI(MOSI) LCD SPI bus write data signal:  								pb5
+7 SCK LCD SPI bus clock signal: 														pb3
+8 LED LCD backlight control signal: 												3.3v
+9 SDO(MISO) LCD SPI bus read data signal :  								pb4
+
+Touch:
+10 T_CLK Touch screen SPI bus clock pin: 										pb13
+11 T_CS Touch screen chip select control pin:     					pb8
+12 T_DIN Touch screen SPI bus write data pin(MOSI): 				pb14
+13 T_DO Touch screen SPI bus read data pin(MISO):						pb15
+14 T_IRQ Touch screen interrupt detection:									pb9
+
+*/
+
 void SPI_Transmit(SPI_TypeDef *hspi, uint8_t *pData, uint16_t Size, uint32_t Timeout){
 	//Implement SPI TX function here	
 }

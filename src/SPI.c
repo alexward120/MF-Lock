@@ -9,6 +9,28 @@ extern uint8_t Rx1_Counter;
 extern uint8_t Rx2_Counter;
 
 //pins pb3, pb4, pb5 for lcd SPI1   //pins pb13, pb14, pb15 for touch SPI2
+
+/*Pinout: 
+	
+1 VCC LCD power supply is positive (3.3V~5V)
+2 GND LCD Power ground
+
+3 CS LCD selection control signal														pb2
+4 RESET LCD reset control signal														pb11
+5 DC/RS LCD register / data selection control signal				pb12
+
+6 SDI(MOSI) LCD SPI bus write data signal:  								pb5
+7 SCK LCD SPI bus clock signal: 														pb3
+8 LED LCD backlight control signal: 												3.3v
+9 SDO(MISO) LCD SPI bus read data signal :  								pb4
+
+Touch:
+10 T_CLK Touch screen SPI bus clock pin: 										pb13
+11 T_CS Touch screen chip select control pin:     					pb8
+12 T_DIN Touch screen SPI bus write data pin(MOSI): 				pb14
+13 T_DO Touch screen SPI bus read data pin(MISO):						pb15
+14 T_IRQ Touch screen interrupt detection:									pb9
+*/
 void SPI_GPIO_Init(void) {
 	// Enable the GPIO Clock
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
