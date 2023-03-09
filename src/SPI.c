@@ -84,7 +84,7 @@ void SPI_Init(void){
 	SPI1->CR1 &= ~SPI_CR1_LSBFIRST;  // 0 -> MSB First
 	SPI2->CR1 &= ~SPI_CR1_LSBFIRST;
 	
-	// Set Data Length to 8 bits ASK ABOUT THIS and if // Disable Output in Bidirectional Mode is needed
+	// Set Data Length to 8 bits 
 	SPI1->CR2 &= ~SPI_CR2_DS;     
 	SPI1->CR2 |= SPI_CR2_DS_2 | SPI_CR2_DS_1 | SPI_CR2_DS_0;  // 0111 -> 8-bit
 	SPI1->CR2 &= ~SPI_CR2_FRF;
@@ -92,6 +92,10 @@ void SPI_Init(void){
 	SPI2->CR2 &= ~SPI_CR2_DS;     
 	SPI2->CR2 |= SPI_CR2_DS_2 | SPI_CR2_DS_1 | SPI_CR2_DS_0;
 	SPI2->CR2 &= ~SPI_CR2_FRF;
+	
+	// Disable Output in Bidirectional Mode
+	SPI1->CR1 &= ~SPI_CR1_BIDIOE;
+	SPI2->CR1 &= ~SPI_CR1_BIDIOE;
 	
 	// Configure Clock
 	SPI1->CR1 &= ~SPI_CR1_CPOL; 
