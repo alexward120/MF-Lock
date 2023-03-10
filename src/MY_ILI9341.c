@@ -314,6 +314,7 @@ Touch:
 
 void SPI_Transmit(SPI_TypeDef *hspi, uint8_t *pData, uint16_t Size, uint32_t Timeout){
 	//Implement SPI TX function here	
+	SPI_Write(hspi, pData, NULL, Size);
 }
 
 //***** Functions prototypes *****//
@@ -323,12 +324,16 @@ void ILI9341_SendCommand(uint8_t com)
 	//*(__IO uint8_t *)(0x60000000) = com;
 	uint8_t tmpCmd = com;
 	//Set DC LOW for COMMAND mode
+	GPIOB->ODR &= ~GPIO_ODR_OD12;
 
 	//Put CS LOW
-	
+	GPIOB->ODR &= ~GPIO_ODR_OD2;
+
 	//Write command byte using SPI
+	SPI_Transmit(SPI1, &tmpCmd, 1, 5);
 
 	//Bring CS HIGH
+	GPIOB->ODR |= GPIO_ODR_OD2;
 }
 
 //2. Write data to LCD
@@ -337,28 +342,30 @@ void ILI9341_SendData(uint8_t data)
 	//*(__IO uint8_t *)(0x60040000) = data;
 	uint8_t tmpCmd = data;
 	//Set DC HIGH for DATA mode
+	GPIOB->ODR |= GPIO_ODR_OD12;
 
 	//Put CS LOW
+	GPIOB->ODR &= ~GPIO_ODR_OD2;
 
 	//Write data using SPI
+	SPI_Transmit(lcdSPIhandle, &tmpCmd, 1, 5);
 
 	//Bring CS HIGH
-
+	GPIOB->ODR |= GPIO_ODR_OD2;
 }
 //2.2 Write multiple/DMA
 void ILI9341_SendData_Multi(uint16_t Colordata, uint32_t size)
 {
-	uint8_t colorL,colorH;
 	//Set DC HIGH for DATA mode
+	GPIOB->ODR |= GPIO_ODR_OD12;
 
 	//Put CS LOW
-
+	GPIOB->ODR &= ~GPIO_ODR_OD2;
 	//Write data using SPI
-
-	//Wait for end of DMA transfer
-
+	SPI_Transmit(lcdSPIhandle, (uint8_t*)&Colordata, (uint16_t)size, 0);
+	
 	//Bring CS HIGH
-
+	GPIOB->ODR |= GPIO_ODR_OD2;
 }
 
 
@@ -384,18 +391,40 @@ void ILI9341_SetCursorPosition(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y
 void ILI9341_Init(SPI_TypeDef *spiLcdHandle, GPIO_TypeDef *csPORT, uint16_t csPIN, GPIO_TypeDef *dcPORT, uint16_t dcPIN, GPIO_TypeDef *resetPORT, uint16_t resetPIN)
  {
 	 //Copy SPI pointer
-
+	 lcdSPIhandle = spiLcdHandle;
 	 //set CS pin variable (look at global variables at the top of the file)
-
+	 tftCS_GPIO = csPORT;
+	 tftCS_PIN = csPIN;
+	 tftCS_GPIO->OSPEEDR |= GPIO_OSPEEDR_OSPEED0 << 2*csPIN;
+	 tftCS_GPIO->OTYPER &= ~GPIO_OTYPER_OT0 << csPIN;
+	 tftCS_GPIO->PUPDR &= ~GPIO_PUPDR_PUPD0 << 2*csPIN;
+	 
 	 //set DC pin variable
+	 tftDC_GPIO = dcPORT;
+	 tftDC_PIN = dcPIN;
+	 tftDC_GPIO->OSPEEDR |= GPIO_OSPEEDR_OSPEED0 << 2*csPIN;
+	 tftDC_GPIO->OTYPER &= ~GPIO_OTYPER_OT0 << csPIN;
+	 tftDC_GPIO->PUPDR &= ~GPIO_PUPDR_PUPD0 << 2*csPIN;
 
 	 //set RESET pin variable
+	 tftRESET_GPIO = resetPORT;
+	 tftRESET_PIN = resetPIN;
+	 tftRESET_GPIO->OSPEEDR |= GPIO_OSPEEDR_OSPEED0 << 2*csPIN;
+	 tftRESET_GPIO->OTYPER &= ~GPIO_OTYPER_OT0 << csPIN;
+	 tftRESET_GPIO->PUPDR &= ~GPIO_PUPDR_PUPD0 << 2*csPIN;
 	 
 	 //clear the mode register bits
-	 
+	 tftCS_GPIO->MODER &= ~(GPIO_MODER_MODE0 << 2*csPIN);
+	 tftDC_GPIO->MODER &= ~(GPIO_MODER_MODE0 << 2*dcPIN);
+	 tftRESET_GPIO->MODER &= ~(GPIO_MODER_MODE0 << 2*resetPIN);
+
 	 //set pins to output mode
-	 
-	
+	 tftCS_GPIO->MODER |= GPIO_MODER_MODE0 << 2*csPIN;
+	 tftDC_GPIO->MODER |= GPIO_MODER_MODE0 << 2*dcPIN;
+	 tftRESET_GPIO->MODER |= GPIO_MODER_MODE0 << 2*resetPIN;
+
+	 //Turn LCD on by turning Reset pin high (check whether reset is active high)
+	 tftRESET_GPIO->ODR |= 1 << tftRESET_PIN;
 
 	//Turn LCD on by turning off the reset (check whether reset is active high)
 	 

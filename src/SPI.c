@@ -142,24 +142,22 @@ void SPI_Write(SPI_TypeDef * SPIx, uint8_t *txBuffer, uint8_t * rxBuffer, int si
 	int i = 0;
 	for (i = 0; i < size; i++) {
 		while( (SPIx->SR & SPI_SR_TXE ) != SPI_SR_TXE );  // Wait for TXE (Transmit buffer empty)
-		*((volatile uint8_t*)&SPIx->DR) = txBuffer[i];
-		while((SPIx->SR & SPI_SR_RXNE ) != SPI_SR_RXNE); // Wait for RXNE (Receive buffer not empty)
-		rxBuffer[i] = *((__IO uint8_t*)&SPIx->DR);
+		*((volatile uint8_t*)&SPIx->DR) = *txBuffer;
+		//while((SPIx->SR & SPI_SR_RXNE ) != SPI_SR_RXNE); // Wait for RXNE (Receive buffer not empty)
+		//rxBuffer[i] = *((__IO uint8_t*)&SPIx->DR);
+		while( (SPIx->SR & SPI_SR_BSY) == SPI_SR_BSY ); // Wait for BSY flag cleared
+		txBuffer++;
 	}
-	while( (SPIx->SR & SPI_SR_BSY) == SPI_SR_BSY ); // Wait for BSY flag cleared
+	
 }
 
 void SPI_Read(SPI_TypeDef * SPIx, uint8_t *rxBuffer, int size) {
 	int i = 0;
 	for (i = 0; i < size; i++) {
-		while( (SPIx->SR & SPI_SR_TXE ) != SPI_SR_TXE ); // Wait for TXE (Transmit buffer empty)
-		*((volatile uint8_t*)&SPIx->DR) = rxBuffer[i];	
-		// The clock is controlled by master. Thus the master has to send a byte
-		// data to the slave to start the clock. 
 		while((SPIx->SR & SPI_SR_RXNE ) != SPI_SR_RXNE); 
-		rxBuffer[i] = *((__IO uint8_t*)&SPIx->DR);
+		*rxBuffer = *((volatile uint8_t*)&SPIx->DR);
+		rxBuffer++;
 	}
-	while( (SPIx->SR & SPI_SR_BSY) == SPI_SR_BSY ); // Wait for BSY flag cleared
 }
 
 //Incorporate delay function (same as delay() in previous labs but with us)

@@ -16,8 +16,10 @@ int main(void){
 	SPI_GPIO_Init(); //pins pb3, pb4, pb5 for lcd SPI1   //pins pb13, pb14, pb15 for touch SPI2
 	SPI_Init();
 	
-	UART1_Init();
-	UART1_GPIO_Init(); //pins pa9, pa10 for usart1
+	ILI9341_Init(SPI1, GPIOB, 2, GPIOB, 12, GPIOB, 11);
+	ILI9341_Fill(COLOR_BLUE);
+	//UART1_Init();
+	//UART1_GPIO_Init(); //pins pa9, pa10 for usart1
 	
 	
 	while(1) {

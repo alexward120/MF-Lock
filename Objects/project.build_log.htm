@@ -21,106 +21,26 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-C:\Users\djere\Classes\_CS Projects for School\ece153a\Lab6\L6A\project.uvprojx
-Project File Date:  03/01/2023
+C:\Users\djere\Classes\_CS Projects for School\MF-Lock\project.uvprojx
+Project File Date:  03/09/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-src/main.c(9): warning: In file included from...
+src/SPI.c(3): warning: In file included from...
+src/SPI.h(4): warning: In file included from...
 src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *           - Macros to access peripheral<92>s registers hardware
                                            ^
-src/main.c(11): warning: no previous prototype for function 'GPIO_Init' [-Wmissing-prototypes]
-void GPIO_Init(void){   
-     ^
-src/main.c(11): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void GPIO_Init(void){   
-^
-static 
-src/main.c(24): warning: no previous prototype for function 'delay' [-Wmissing-prototypes]
-void delay(void) {
-     ^
-src/main.c(24): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void delay(void) {
-^
-static 
-src/main.c(28): warning: no previous prototype for function 'Power_North' [-Wmissing-prototypes]
-void Power_North(void) {
-     ^
-src/main.c(28): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Power_North(void) {
-^
-static 
-src/main.c(34): warning: no previous prototype for function 'Power_South' [-Wmissing-prototypes]
-void Power_South(void) {
-     ^
-src/main.c(34): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Power_South(void) {
-^
-static 
-src/main.c(41): warning: no previous prototype for function 'Power_East' [-Wmissing-prototypes]
-void Power_East(void) {
-     ^
-src/main.c(41): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Power_East(void) {
-^
-static 
-src/main.c(47): warning: no previous prototype for function 'Power_West' [-Wmissing-prototypes]
-void Power_West(void) {
-     ^
-src/main.c(47): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Power_West(void) {
-^
-static 
-src/main.c(53): warning: no previous prototype for function 'Depower_Horizontal' [-Wmissing-prototypes]
-void Depower_Horizontal(void) {
-     ^
-src/main.c(53): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Depower_Horizontal(void) {
-^
-static 
-src/main.c(59): warning: no previous prototype for function 'Depower_Vertical' [-Wmissing-prototypes]
-void Depower_Vertical(void) {
-     ^
-src/main.c(59): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Depower_Vertical(void) {
-^
-static 
-src/main.c(66): warning: no previous prototype for function 'Full_Stepping_Clockwise' [-Wmissing-prototypes]
-void Full_Stepping_Clockwise(void){
-     ^
-src/main.c(66): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Full_Stepping_Clockwise(void){
-^
-static 
-src/main.c(86): warning: no previous prototype for function 'Full_Stepping_CounterClockwise' [-Wmissing-prototypes]
-void Full_Stepping_CounterClockwise(void){
-     ^
-src/main.c(86): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Full_Stepping_CounterClockwise(void){
-^
-static 
-src/main.c(106): warning: no previous prototype for function 'Half_Stepping_Clockwise' [-Wmissing-prototypes]
-void Half_Stepping_Clockwise(void){
-     ^
-src/main.c(106): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Half_Stepping_Clockwise(void){
-^
-static 
-src/main.c(136): warning: no previous prototype for function 'Half_Stepping_CounterClockwise' [-Wmissing-prototypes]
-void Half_Stepping_CounterClockwise(void){
-     ^
-src/main.c(136): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void Half_Stepping_CounterClockwise(void){
-^
-static 
-13 warnings generated.
-compiling main.c...
+src/SPI.c(141): warning: unused parameter 'rxBuffer' [-Wunused-parameter]
+void SPI_Write(SPI_TypeDef * SPIx, uint8_t *txBuffer, uint8_t * rxBuffer, int size) {
+                                                                ^
+2 warnings generated.
+compiling SPI.c...
 linking...
-Program Size: Code=840 RO-data=408 RW-data=0 ZI-data=1632  
+Program Size: Code=3044 RO-data=424 RW-data=4 ZI-data=1668  
 FromELF: creating hex file...
-".\Objects\project.axf" - 0 Error(s), 13 Warning(s).
+".\Objects\project.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
