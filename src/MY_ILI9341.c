@@ -15,7 +15,6 @@ Description:			This is an STM32 device driver library for the ILI9341 SPI LCD di
 
 //Header files
 #include "MY_ILI9341.h"
-#include "SPI.h"
 static uint8_t rotationNum=1;
 static bool _cp437    = false;
 static SPI_TypeDef* lcdSPIhandle;
@@ -294,27 +293,28 @@ const unsigned char font1[] = {
 1 VCC LCD power supply is positive (3.3V~5V)
 2 GND LCD Power ground
 
-3 CS LCD selection control signal														pb2
-4 RESET LCD reset control signal														pb11
+3 CS LCD selection control signal									pb2
+4 RESET LCD reset control signal									pb11
 5 DC/RS LCD register / data selection control signal				pb12
 
-6 SDI(MOSI) LCD SPI bus write data signal:  								pb5
-7 SCK LCD SPI bus clock signal: 														pb3
-8 LED LCD backlight control signal: 												3.3v
-9 SDO(MISO) LCD SPI bus read data signal :  								pb4
+6 SDI(MOSI) LCD SPI bus write data signal:  						pb5
+7 SCK LCD SPI bus clock signal: 									pb3
+8 LED LCD backlight control signal: 								3.3v
+9 SDO(MISO) LCD SPI bus read data signal :  						pb4
 
 Touch:
-10 T_CLK Touch screen SPI bus clock pin: 										pb13
+10 T_CLK Touch screen SPI bus clock pin: 							pb13
 11 T_CS Touch screen chip select control pin:     					pb8
 12 T_DIN Touch screen SPI bus write data pin(MOSI): 				pb14
-13 T_DO Touch screen SPI bus read data pin(MISO):						pb15
-14 T_IRQ Touch screen interrupt detection:									pb9
+13 T_DO Touch screen SPI bus read data pin(MISO):					pb15
+14 T_IRQ Touch screen interrupt detection:							pb9
 
 */
 
-void SPI_Transmit(SPI_TypeDef *hspi, uint8_t *pData, uint16_t Size, uint32_t Timeout){
+// tftRESET_GPIO->ODR |= (1 << tftRESET_PIN);
+void SPI_Transmit(SPI_TypeDef *hspi, uint8_t *pData, uint16_t Size){
 	//Implement SPI TX function here	
-	SPI_Write(hspi, pData, NULL, Size);
+	SPI_Write(hspi, pData, Size);
 }
 
 //***** Functions prototypes *****//
@@ -324,16 +324,16 @@ void ILI9341_SendCommand(uint8_t com)
 	//*(__IO uint8_t *)(0x60000000) = com;
 	uint8_t tmpCmd = com;
 	//Set DC LOW for COMMAND mode
-	GPIOB->ODR &= ~GPIO_ODR_OD12;
+	tftDC_GPIO->ODR &= ~(1 << tftDC_PIN);
 
 	//Put CS LOW
-	GPIOB->ODR &= ~GPIO_ODR_OD2;
+	tftCS_GPIO->ODR &= ~(1 << tftCS_PIN);
 
 	//Write command byte using SPI
-	SPI_Transmit(SPI1, &tmpCmd, 1, 5);
+	SPI_Transmit(lcdSPIhandle, &tmpCmd, 1);
 
 	//Bring CS HIGH
-	GPIOB->ODR |= GPIO_ODR_OD2;
+	tftCS_GPIO->ODR |= (1 << tftCS_PIN);
 }
 
 //2. Write data to LCD
@@ -342,34 +342,33 @@ void ILI9341_SendData(uint8_t data)
 	//*(__IO uint8_t *)(0x60040000) = data;
 	uint8_t tmpCmd = data;
 	//Set DC HIGH for DATA mode
-	GPIOB->ODR |= GPIO_ODR_OD12;
+	tftDC_GPIO->ODR |= (1 << tftDC_PIN);
 
 	//Put CS LOW
-	GPIOB->ODR &= ~GPIO_ODR_OD2;
+	tftCS_GPIO->ODR &= ~(1 << tftCS_PIN);
 
 	//Write data using SPI
-	SPI_Transmit(lcdSPIhandle, &tmpCmd, 1, 5);
+	SPI_Transmit(lcdSPIhandle, &tmpCmd, 1);
 
 	//Bring CS HIGH
-	GPIOB->ODR |= GPIO_ODR_OD2;
+	tftCS_GPIO->ODR |= (1 << tftCS_PIN);
 }
+
 //2.2 Write multiple/DMA
 void ILI9341_SendData_Multi(uint16_t Colordata, uint32_t size)
 {
 	//Set DC HIGH for DATA mode
-	GPIOB->ODR |= GPIO_ODR_OD12;
+	tftDC_GPIO->ODR |= (1 << tftDC_PIN);
 
 	//Put CS LOW
-	GPIOB->ODR &= ~GPIO_ODR_OD2;
+	tftCS_GPIO->ODR &= ~(1 << tftCS_PIN);
+	
 	//Write data using SPI
-	SPI_Transmit(lcdSPIhandle, (uint8_t*)&Colordata, (uint16_t)size, 0);
+	SPI_Transmit(lcdSPIhandle, (uint8_t*)&Colordata, size);
 	
 	//Bring CS HIGH
-	GPIOB->ODR |= GPIO_ODR_OD2;
+	tftCS_GPIO->ODR |= (1 << tftCS_PIN);
 }
-
-
-
 
 //3. Set cursor position
 void ILI9341_SetCursorPosition(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
@@ -395,36 +394,27 @@ void ILI9341_Init(SPI_TypeDef *spiLcdHandle, GPIO_TypeDef *csPORT, uint16_t csPI
 	 //set CS pin variable (look at global variables at the top of the file)
 	 tftCS_GPIO = csPORT;
 	 tftCS_PIN = csPIN;
-	 tftCS_GPIO->OSPEEDR |= GPIO_OSPEEDR_OSPEED0 << 2*csPIN;
-	 tftCS_GPIO->OTYPER &= ~GPIO_OTYPER_OT0 << csPIN;
-	 tftCS_GPIO->PUPDR &= ~GPIO_PUPDR_PUPD0 << 2*csPIN;
 	 
 	 //set DC pin variable
 	 tftDC_GPIO = dcPORT;
 	 tftDC_PIN = dcPIN;
-	 tftDC_GPIO->OSPEEDR |= GPIO_OSPEEDR_OSPEED0 << 2*csPIN;
-	 tftDC_GPIO->OTYPER &= ~GPIO_OTYPER_OT0 << csPIN;
-	 tftDC_GPIO->PUPDR &= ~GPIO_PUPDR_PUPD0 << 2*csPIN;
-
+	 
 	 //set RESET pin variable
 	 tftRESET_GPIO = resetPORT;
 	 tftRESET_PIN = resetPIN;
-	 tftRESET_GPIO->OSPEEDR |= GPIO_OSPEEDR_OSPEED0 << 2*csPIN;
-	 tftRESET_GPIO->OTYPER &= ~GPIO_OTYPER_OT0 << csPIN;
-	 tftRESET_GPIO->PUPDR &= ~GPIO_PUPDR_PUPD0 << 2*csPIN;
 	 
 	 //clear the mode register bits
-	 tftCS_GPIO->MODER &= ~(GPIO_MODER_MODE0 << 2*csPIN);
-	 tftDC_GPIO->MODER &= ~(GPIO_MODER_MODE0 << 2*dcPIN);
-	 tftRESET_GPIO->MODER &= ~(GPIO_MODER_MODE0 << 2*resetPIN);
+	 tftCS_GPIO->MODER &= ~(3 << 2*csPIN);
+	 tftDC_GPIO->MODER &= ~(3 << 2*dcPIN);
+	 tftRESET_GPIO->MODER &= ~(3 << 2*resetPIN);
 
 	 //set pins to output mode
-	 tftCS_GPIO->MODER |= GPIO_MODER_MODE0 << 2*csPIN;
-	 tftDC_GPIO->MODER |= GPIO_MODER_MODE0 << 2*dcPIN;
-	 tftRESET_GPIO->MODER |= GPIO_MODER_MODE0 << 2*resetPIN;
+	 tftCS_GPIO->MODER |= (1 << 2*csPIN);
+	 tftDC_GPIO->MODER |= (1 << 2*dcPIN);
+	 tftRESET_GPIO->MODER |= (1 << 2*resetPIN);
 
 	 //Turn LCD on by turning Reset pin high (check whether reset is active high)
-	 tftRESET_GPIO->ODR |= 1 << tftRESET_PIN;
+	 tftRESET_GPIO->ODR |= (1 << tftRESET_PIN);
 
 	//Turn LCD on by turning off the reset (check whether reset is active high)
 	 

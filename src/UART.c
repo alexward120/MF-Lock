@@ -38,7 +38,7 @@ void USART_Init(USART_TypeDef* USARTx) {
 	USARTx->CR1 &= ~USART_CR1_OVER8; //enable oversampling by 16 bit
 	USARTx->CR1 &= ~USART_CR2_STOP; //setting stop bit amount to 1
 	
-	USARTx->BRR = 80000000 / 9600; //setting baud rate to 9600 (CLK / baud rate)
+	USARTx->BRR = 80000000 / 19200; //setting baud rate to 9600 (CLK / baud rate)
 
 	USARTx->CR1 |= USART_CR1_TE; //enable transmitter
 	USARTx->CR1 |= USART_CR1_RE; //enable receiver

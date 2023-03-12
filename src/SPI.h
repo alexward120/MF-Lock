@@ -5,9 +5,11 @@
 
 #define BufferSize 32
 
-void SPI_GPIO_Init(void);
-void SPI_Init(void);
-void SPI_Write(SPI_TypeDef * SPIx, uint8_t *txBuffer, uint8_t * rxBuffer, int size);
+void SPI1_GPIO_Init(void);
+void SPI1_Init(void);
+void SPI2_GPIO_Init(void);
+void SPI2_Init(void);
+void SPI_Write(SPI_TypeDef * SPIx, uint8_t *txBuffer, int size);
 void SPI_Read(SPI_TypeDef * SPIx, uint8_t *rxBuffer, int size);
 void SPI_Delay(uint32_t us);
 

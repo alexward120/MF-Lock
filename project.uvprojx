@@ -459,6 +459,26 @@
               <FileType>1</FileType>
               <FilePath>.\src\SysClock.c</FilePath>
             </File>
+            <File>
+              <FileName>fingerprint.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\fingerprint.c</FilePath>
+            </File>
+            <File>
+              <FileName>fingerprint.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\fingerprint.h</FilePath>
+            </File>
+            <File>
+              <FileName>TSC2046.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\TSC2046.c</FilePath>
+            </File>
+            <File>
+              <FileName>TSC2046.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\TSC2046.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
