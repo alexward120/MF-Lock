@@ -9,4 +9,5 @@
   C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h src\SPI.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h src\SysTimer.h \
+  src\SPI.h

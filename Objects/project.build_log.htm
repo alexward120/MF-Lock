@@ -21,13 +21,38 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-C:\Users\zande\Documents\School Stuff\MF-Lock\project.uvprojx
-Project File Date:  03/11/2023
+F:\School Stuff\MF-Lock\project.uvprojx
+Project File Date:  03/18/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-".\Objects\project.axf" - 0 Error(s), 0 Warning(s).
+src/main.c(3): warning: In file included from...
+src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+src/main.c(183): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+                                char newpass[4];
+                                     ^
+src/main.c(70): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+        int flag;
+            ^
+src/main.c(223): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+                        ILI9341_drawChar(85 + (40*i), 120, '*', COLOR_WHITE, COLOR_BLACK, 5);
+                        ~~~~~~~~~~~~~~~~ ~~~^~~~~~~~
+src/main.c(6): warning: In file included from...
+src/MY_ILI9341.h(131): warning: unused function 'drawCircleHelper' [-Wunused-function]
+static void drawCircleHelper( int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color);
+            ^
+src/MY_ILI9341.h(132): warning: unused function 'fillCircleHelper' [-Wunused-function]
+static void fillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, int16_t delta, uint16_t color);
+            ^
+6 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=22272 RO-data=2408 RW-data=12 ZI-data=1852  
+FromELF: creating hex file...
+".\Objects\project.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,7 +75,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.6.0
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

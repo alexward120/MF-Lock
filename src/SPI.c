@@ -17,19 +17,12 @@ extern uint8_t Rx2_Counter;
 
 3 CS LCD selection control signal						pb2
 4 RESET LCD reset control signal						pb11
-5 DC/RS LCD register / data selection control signal	pb12
+5 DC/RS LCD register / data selection control signal	pb8
 
 6 SDI(MOSI) LCD SPI bus write data signal:  			pb5
 7 SCK LCD SPI bus clock signal: 						pb3
 8 LED LCD backlight control signal: 					3.3v
 9 SDO(MISO) LCD SPI bus read data signal :  			pb4
-
-Touch:
-10 T_CLK Touch screen SPI bus clock pin(SDK): 			pb13
-11 T_CS Touch screen chip select control pin:     		pb8
-12 T_DIN Touch screen SPI bus write data pin(MOSI): 	pb14
-13 T_DO Touch screen SPI bus read data pin(MISO):		pb15
-14 T_IRQ Touch screen interrupt detection:				pb9
 */
 
 void SPI1_GPIO_Init(void) {  //mosi=pb5, sck=pb3, miso=pb4
@@ -51,7 +44,7 @@ void SPI1_GPIO_Init(void) {  //mosi=pb5, sck=pb3, miso=pb4
 	GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPD3 | GPIO_PUPDR_PUPD4 | GPIO_PUPDR_PUPD5);
 }
 
-void SPI2_GPIO_Init(void) {  //mosi=pb14, sck=pb13, miso=pb15
+void SPI2_GPIO_Init(void) {  //used for touch screen
 	// Enable the GPIO Clock
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
 	// Set Alternative Functions for Touch
@@ -59,14 +52,15 @@ void SPI2_GPIO_Init(void) {  //mosi=pb14, sck=pb13, miso=pb15
 	GPIOB->MODER |= GPIO_MODER_MODE13_1 | GPIO_MODER_MODE14_1 | GPIO_MODER_MODE15_1;
 	
 	GPIOB->AFR[1] &= ~(GPIO_AFRH_AFSEL13 | GPIO_AFRH_AFSEL14 | GPIO_AFRH_AFSEL15);
-	GPIOB->AFR[1] |= GPIO_AFRH_AFSEL13_2 | GPIO_AFRH_AFSEL13_0 |
+	GPIOB->AFR[1] |= 
+					 GPIO_AFRH_AFSEL13_2 | GPIO_AFRH_AFSEL13_0 |
 	                 GPIO_AFRH_AFSEL14_2 | GPIO_AFRH_AFSEL14_0 |
 	                 GPIO_AFRH_AFSEL15_2 | GPIO_AFRH_AFSEL15_0;
 	
 	// Set GPIO Pins to: Very High Output speed, Output Type Push-Pull, and No Pull-Up/Down
-	GPIOB->OSPEEDR |= GPIO_OSPEEDR_OSPEED13 | GPIO_OSPEEDR_OSPEED14 | GPIO_OSPEEDR_OSPEED15;
-	GPIOB->OTYPER &= ~(GPIO_OTYPER_OT13 | GPIO_OTYPER_OT14 | GPIO_OTYPER_OT15);
-	GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPD13 | GPIO_PUPDR_PUPD14 | GPIO_PUPDR_PUPD15);
+	GPIOB->OSPEEDR |=  GPIO_OSPEEDR_OSPEED13 | GPIO_OSPEEDR_OSPEED14 | GPIO_OSPEEDR_OSPEED15;
+	GPIOB->OTYPER &= ~( GPIO_OTYPER_OT13 | GPIO_OTYPER_OT14 | GPIO_OTYPER_OT15);
+	GPIOB->PUPDR &= ~( GPIO_PUPDR_PUPD13 | GPIO_PUPDR_PUPD14 | GPIO_PUPDR_PUPD15);
 }
 
 //SPI1 Init for ILI9341 on Nucleo board
@@ -102,7 +96,7 @@ void SPI1_Init(void){
 	
 	// Set Baud Rate Prescaler. (Setting to 16)
 	SPI1->CR1 &= ~SPI_CR1_BR;
-	SPI1->CR1 |= SPI_CR1_BR_1 | SPI_CR1_BR_0;
+	//SPI1->CR1 |= SPI_CR1_BR_2;
 	
 	// Disable Hardware CRC Calculation
 	SPI1->CR1 &= ~SPI_CR1_CRCEN;
@@ -133,7 +127,7 @@ void SPI2_Init(void) {
 	SPI2->CR1 &= ~SPI_CR1_SPE; 
 	
 	// Configure for Full Duplex Communication
-	SPI2->CR1 |= SPI_CR1_RXONLY;
+	SPI2->CR1 &= ~SPI_CR1_RXONLY;
 	
 	// Configure for 2-line Unidirectional Data Mode
 	SPI2->CR1 &= ~SPI_CR1_BIDIMODE;
@@ -153,19 +147,20 @@ void SPI2_Init(void) {
 	SPI2->CR1 &= ~SPI_CR1_CPOL;
 	SPI2->CR1 &= ~SPI_CR1_CPHA;
 	
-	// Set Baud Rate Prescaler. (Setting to 16)
-	SPI2->CR1 &= ~SPI_CR1_BR;
-	SPI2->CR1 |= SPI_CR1_BR_1 | SPI_CR1_BR_0;
+	// Set Baud Rate Prescaler. (Setting to 32)
+	SPI2->CR1 |= SPI_CR1_BR;
+	//SPI2->CR1 |= SPI_CR1_BR_2;
 	
 	// Disable Hardware CRC Calculation
 	SPI2->CR1 &= ~SPI_CR1_CRCEN;
 	
-	// Set as Master and Enable Software Slave Management and NSS Pulse Management
-	SPI2->CR1 &= ~SPI_CR1_MSTR; 
+	// Set as Master and Disable Software Slave Management and NSS Pulse Management
+	SPI2->CR1 |= SPI_CR1_MSTR; 
 	SPI2->CR1 |= SPI_CR1_SSM;
+	SPI2->CR2 |= SPI_CR2_SSOE;
 	SPI2->CR2 |= SPI_CR2_NSSP;
 	
-	// Manage NSS using Software
+	// Manage NSS using Hardware
 	SPI2->CR1 &= ~SPI_CR1_SSI;
 	
 	// Set FIFO Reception Threshold
@@ -176,12 +171,19 @@ void SPI2_Init(void) {
 } 
 
 void SPI_Write(SPI_TypeDef * SPIx, uint8_t *txBuffer, int size) {
+	uint8_t rxBuffer = 0;
 	int i = 0;
 	for (i = 0; i < size; i++) {
 		while(!(SPIx->SR & SPI_SR_TXE ));  // Wait for TXE (Transmit buffer empty)
 		*((volatile uint8_t*)&SPIx->DR) = *txBuffer;
 		while(SPIx->SR & SPI_SR_BSY); // Wait for BSY flag cleared
 		txBuffer++;
+		/*
+		if ((SPIx->SR & SPI_SR_RXNE ) == SPI_SR_RXNE) {
+			
+		rxBuffer = *((volatile uint8_t*)&SPIx->DR);
+		rxBuffer++;
+		}*/
 	}
 }
 

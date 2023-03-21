@@ -295,7 +295,7 @@ const unsigned char font1[] = {
 
 3 CS LCD selection control signal									pb2
 4 RESET LCD reset control signal									pb11
-5 DC/RS LCD register / data selection control signal				pb12
+5 DC/RS LCD register / data selection control signal				pb8
 
 6 SDI(MOSI) LCD SPI bus write data signal:  						pb5
 7 SCK LCD SPI bus clock signal: 									pb3
@@ -304,7 +304,7 @@ const unsigned char font1[] = {
 
 Touch:
 10 T_CLK Touch screen SPI bus clock pin: 							pb13
-11 T_CS Touch screen chip select control pin:     					pb8
+11 T_CS Touch screen chip select control pin:     					pb12
 12 T_DIN Touch screen SPI bus write data pin(MOSI): 				pb14
 13 T_DO Touch screen SPI bus read data pin(MISO):					pb15
 14 T_IRQ Touch screen interrupt detection:							pb9
@@ -407,6 +407,9 @@ void ILI9341_Init(SPI_TypeDef *spiLcdHandle, GPIO_TypeDef *csPORT, uint16_t csPI
 	 tftCS_GPIO->MODER &= ~(3 << 2*csPIN);
 	 tftDC_GPIO->MODER &= ~(3 << 2*dcPIN);
 	 tftRESET_GPIO->MODER &= ~(3 << 2*resetPIN);
+	 tftCS_GPIO->OSPEEDR |= (3 << 2*csPIN);
+	 tftDC_GPIO->OSPEEDR |= (3 << 2*dcPIN);
+	 tftRESET_GPIO->OSPEEDR |= (3 << 2*resetPIN);
 
 	 //set pins to output mode
 	 tftCS_GPIO->MODER |= (1 << 2*csPIN);

@@ -1,7 +1,7 @@
 Dependencies for Project 'project', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6190000::V6.19::ARMCLANG
-F (.\src\main.c)(0x640D4635)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/main.o -MD)
-I (src\stm32l476xx.h)(0x640A2C10)
+F (.\src\main.c)(0x641A42A8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/main.o -MD)
+I (src\stm32l476xx.h)(0x640A2C12)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
@@ -9,22 +9,115 @@ I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cms
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
 I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-I (src\motor.h)(0x640A425D)
-I (src\SPI.h)(0x640D0E79)
-I (src\MY_ILI9341.h)(0x640D31FC)
+I (src\motor.h)(0x640A425E)
+I (src\SPI.h)(0x640D0E7A)
+I (src\MY_ILI9341.h)(0x64112D82)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63892A08)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63892A08)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63892A08)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
-I (src\TSC2046.h)(0x640D3588)
+I (src\SysTimer.h)(0x640A31BA)
+I (src\UART.h)(0x6410E97A)
+I (src\SysClock.h)(0x640A3FC4)
+I (src\keypad.h)(0x64165BC2)
+F (.\src\startup_stm32l476xx.s)(0x640A2C12)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 538" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32L476xx SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32l476xx.o)
+F (.\src\stm32l476xx.h)(0x640A2C12)()
+F (.\src\motor.c)(0x641A08AA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/motor.o -MD)
+I (src\stm32l476xx.h)(0x640A2C12)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
+I (src\motor.h)(0x640A425E)
+I (src\SysTimer.h)(0x640A31BA)
+F (.\src\motor.h)(0x640A425E)()
+F (.\src\SPI.h)(0x640D0E7A)()
+F (.\src\SPI.c)(0x641A2EDA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/spi.o -MD)
+I (src\SPI.h)(0x640D0E7A)
+I (src\stm32l476xx.h)(0x640A2C12)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
+I (src\SysTimer.h)(0x640A31BA)
+F (.\src\MY_ILI9341.h)(0x64112D82)()
+F (.\src\MY_ILI9341.c)(0x6410E450)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/my_ili9341.o -MD)
+I (src\MY_ILI9341.h)(0x64112D82)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63892A08)
+I (src\stm32l476xx.h)(0x640A2C12)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (src\SysTimer.h)(0x640A31BA)
+I (src\SPI.h)(0x640D0E7A)
+F (.\src\SysTimer.h)(0x640A31BA)()
+F (.\src\SysTimer.c)(0x640A31E0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/systimer.o -MD)
+I (src\SysTimer.h)(0x640A31BA)
+I (src\stm32l476xx.h)(0x640A2C12)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
+F (.\src\UART.c)(0x6410EC0A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/uart.o -MD)
+I (src\UART.h)(0x6410E97A)
+I (src\stm32l476xx.h)(0x640A2C12)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
+F (.\src\UART.h)(0x6410E97A)()
+F (.\src\SysClock.h)(0x640A3FC4)()
+F (.\src\SysClock.c)(0x640A3FE0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/sysclock.o -MD)
+I (src\SysClock.h)(0x640A3FC4)
+I (src\stm32l476xx.h)(0x640A2C12)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
+F (.\src\TSC2046.c)(0x6412480C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/tsc2046.o -MD)
+I (src\TSC2046.h)(0x640D358A)
+I (src\stm32l476xx.h)(0x640A2C12)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
+I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
+I (src\MY_ILI9341.h)(0x64112D82)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63892A08)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
+I (src\SysTimer.h)(0x640A31BA)
+I (src\SPI.h)(0x640D0E7A)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63892A08)
-I (src\UART.h)(0x640A4266)
-I (src\SysTimer.h)(0x640A31B8)
-I (src\SysClock.h)(0x640A3FC2)
-F (.\src\startup_stm32l476xx.s)(0x640A2C10)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 538" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32L476xx SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32l476xx.o)
-F (.\src\stm32l476xx.h)(0x640A2C10)()
-F (.\src\motor.c)(0x640A4261)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/motor.o -MD)
-I (src\stm32l476xx.h)(0x640A2C10)
+F (.\src\TSC2046.h)(0x640D358A)()
+F (.\src\UART_printf.c)(0x6410E8CA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/uart_printf.o -MD)
+I (src\UART.h)(0x6410E97A)
+I (src\stm32l476xx.h)(0x640A2C12)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
@@ -32,40 +125,11 @@ I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cms
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
 I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-I (src\motor.h)(0x640A425D)
-F (.\src\motor.h)(0x640A425D)()
-F (.\src\SPI.h)(0x640D0E79)()
-F (.\src\SPI.c)(0x640D1206)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/spi.o -MD)
-I (src\SPI.h)(0x640D0E79)
-I (src\stm32l476xx.h)(0x640A2C10)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-I (src\SysTimer.h)(0x640A31B8)
-F (.\src\MY_ILI9341.h)(0x640D31FC)()
-F (.\src\MY_ILI9341.c)(0x640D34CA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/my_ili9341.o -MD)
-I (src\MY_ILI9341.h)(0x640D31FC)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63892A08)
-I (src\stm32l476xx.h)(0x640A2C10)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63892A08)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63892A08)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
-I (src\SPI.h)(0x640D0E79)
-F (.\src\SysTimer.h)(0x640A31B8)()
-F (.\src\SysTimer.c)(0x640A31DF)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/systimer.o -MD)
-I (src\SysTimer.h)(0x640A31B8)
-I (src\stm32l476xx.h)(0x640A2C10)
+F (.\src\keypad.h)(0x64165BC2)()
+F (.\src\keypad.c)(0x641A294A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/keypad.o -MD)
+I (src\keypad.h)(0x64165BC2)
+I (src\stm32l476xx.h)(0x640A2C12)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
@@ -73,56 +137,3 @@ I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cms
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
 I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
 I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-F (.\src\UART.c)(0x640D20DB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/uart.o -MD)
-I (src\UART.h)(0x640A4266)
-I (src\stm32l476xx.h)(0x640A2C10)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-F (.\src\UART.h)(0x640A4266)()
-F (.\src\SysClock.h)(0x640A3FC2)()
-F (.\src\SysClock.c)(0x640A3FDF)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/sysclock.o -MD)
-I (src\SysClock.h)(0x640A3FC2)
-I (src\stm32l476xx.h)(0x640A2C10)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-F (.\src\fingerprint.c)(0x640D37F1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/fingerprint.o -MD)
-I (src\fingerprint.h)(0x640D2F2F)
-I (src\stm32l476xx.h)(0x640A2C10)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-I (src\UART.h)(0x640A4266)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
-F (.\src\fingerprint.h)(0x640D2F2F)()
-F (.\src\TSC2046.c)(0x640D392A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/_Target_1-IC:/Users/zande/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/zande/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32L476xx -D_RTE_-o ./objects/tsc2046.o -MD)
-I (src\TSC2046.h)(0x640D3588)
-I (src\stm32l476xx.h)(0x640A2C10)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x62702BDE)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63892A08)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x62702BDE)
-I (C:\Users\zande\AppData\Local\Arm\Packs\Keil\STM32L4xx_DFP\2.6.1\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h)(0x60F05458)
-I (src\MY_ILI9341.h)(0x640D31FC)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63892A08)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63892A08)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63892A08)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63892A08)
-I (src\SPI.h)(0x640D0E79)
-I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63892A08)
-F (.\src\TSC2046.h)(0x640D3588)()

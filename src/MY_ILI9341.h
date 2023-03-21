@@ -21,6 +21,7 @@ Description:			This is an STM32 device driver library for the ILI9341 SPI LCD di
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "SysTimer.h"
 
 #include "SPI.h"
 

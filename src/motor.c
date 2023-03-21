@@ -2,6 +2,7 @@
 
 #include "stm32l476xx.h"
 #include "motor.h"
+#include "SysTimer.h"
 
 void Motor_GPIO_Init(void){	//pins pc5, pc6, pc8, pc9
 	// Activate gpio, set mode to output, set speed to very fast, set type to push pull and turn off pupd
@@ -14,10 +15,10 @@ void Motor_GPIO_Init(void){	//pins pc5, pc6, pc8, pc9
 }
 
 
-#define DELAY 800	// delay between steps of the sequences
+#define DELAY 400	// delay between steps of the sequences
 
 void Motor_delay(void) {
-	for (int i=0; i<DELAY; i++);
+	delay(2);
 }
 
 void Power_North(void) {

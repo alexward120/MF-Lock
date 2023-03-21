@@ -37,34 +37,31 @@ static TS_TOUCH_RAW_Def localRawTouch;
 //#define _TS_CS_ENBALE		HAL_GPIO_WritePin(tsCS_GPIO, tsCS_PIN, GPIO_PIN_RESET);
 //#define _TS_CS_DISABLE		HAL_GPIO_WritePin(tsCS_GPIO, tsCS_PIN, GPIO_PIN_SET);
 
-
-
-
-void SPI_Receive(SPI_TypeDef *hspi, uint8_t *pData, uint16_t Size) {
-	SPI_Read(hspi, pData, Size);
+uint8_t SPI_Send_Recieve(SPI_TypeDef *SPIx, uint8_t pData){
+	while(!(SPIx->SR & SPI_SR_TXE ));  // Wait for TXE (Transmit buffer empty)
+	*((volatile uint8_t*)&SPIx->DR) = pData;
+	while(SPIx->SR & SPI_SR_BSY); // Wait for BSY flag cleared
+	while((SPIx->SR & SPI_SR_RXNE ) != SPI_SR_RXNE); 
+	return *((volatile uint8_t*)&SPIx->DR);
 }
 
 //Functions definitions
 //1. Send TSC2046 Command and wait for a response
 uint16_t TSC2046_SendCommand(uint8_t cmd)
 {
-	uint8_t spiBuf[3] = {0,0,0};
-	uint16_t return16=0;
+	tsCS_GPIO->ODR &= ~(1 << tsCS_PIN);
+	uint8_t unused = SPI_Send_Recieve(tsSPIhandle, cmd);
+	tsCS_GPIO->ODR |= (1 << tsCS_PIN);
 	
-	//Set CS LOW
-	tsCS_GPIO->ODR &= (1 << tsCS_PIN);
-	
-	spiBuf[0] = cmd;
-	SPI_Transmit(tsSPIhandle, spiBuf, 1);
+	//SPI_Transmit(tsSPIhandle, spiBuf, 1);
 	//Wait for response (3 ms)
-	SPI_Delay(3);
+	delay(3);
+	uint8_t in0 = SPI_Send_Recieve(tsSPIhandle, 0);
+	uint8_t in1 = SPI_Send_Recieve(tsSPIhandle, 0);
 	
-	//ASK ABOUT WHAT DO ABOUT THIS FUNCTION
-	/*
-	if(HAL_SPI_Receive(&tsSPIhandle, &spiBuf[1], 2, 10) == HAL_OK) return16 = (spiBuf[1]<<4) + (spiBuf[2]>>4);
-	else return16 = 0;
+	uint16_t return16 = (in0<<4) | (in1>>4);
+	printf("%d\n", return16);
 	
-	*/
 	return return16;
 }
 //2. Calibrate resistive touch panel
@@ -93,9 +90,11 @@ void TSC2046_Calibrate(void)
 			
 			break;
 		}
-		SPI_Delay(10);
+		delay(10);
+		//SPI_Delay(10);
 	}
-	SPI_Delay(1000);
+	delay(1000);
+	//SPI_Delay(1000);
 	//Get Bottom-Right corner calibration coordinate
 	TSC2046_BR_point();
 	while(1)
@@ -111,7 +110,8 @@ void TSC2046_Calibrate(void)
 			}
 			break;
 		}
-		SPI_Delay(10);
+		//SPI_Delay(10);
+		delay(10);
 	}
 	
 	myTS_Calibrate.TL_X *=0.1;
@@ -179,6 +179,7 @@ bool  TSC2046_Begin(SPI_TypeDef *touchSPI, GPIO_TypeDef *csPort, uint16_t csPin)
 	tsCS_GPIO->MODER |= (1 << 2*csPin);
 	//Get screen orientation
 	ScreenOrientation = TSC2046_getOrientation();
+	return true;
 }
 
 //5. Get raw touch data

@@ -10,6 +10,5 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h src\TSC2046.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h src\UART.h \
-  src\SysTimer.h src\SysClock.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h src\SysTimer.h \
+  src\UART.h src\SysClock.h src\keypad.h
