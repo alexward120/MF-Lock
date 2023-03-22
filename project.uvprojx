@@ -460,16 +460,6 @@
               <FilePath>.\src\SysClock.c</FilePath>
             </File>
             <File>
-              <FileName>TSC2046.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\TSC2046.c</FilePath>
-            </File>
-            <File>
-              <FileName>TSC2046.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\TSC2046.h</FilePath>
-            </File>
-            <File>
               <FileName>UART_printf.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\UART_printf.c</FilePath>

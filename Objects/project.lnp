@@ -7,7 +7,6 @@
 ".\objects\systimer.o"
 ".\objects\uart.o"
 ".\objects\sysclock.o"
-".\objects\tsc2046.o"
 ".\objects\uart_printf.o"
 ".\objects\keypad.o"
 --strict --scatter ".\Objects\project.sct"

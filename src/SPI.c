@@ -44,7 +44,7 @@ void SPI1_GPIO_Init(void) {  //mosi=pb5, sck=pb3, miso=pb4
 	GPIOB->PUPDR &= ~(GPIO_PUPDR_PUPD3 | GPIO_PUPDR_PUPD4 | GPIO_PUPDR_PUPD5);
 }
 
-void SPI2_GPIO_Init(void) {  //used for touch screen
+void SPI2_GPIO_Init(void) {  //attempt for touch screen
 	// Enable the GPIO Clock
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
 	// Set Alternative Functions for Touch
@@ -94,9 +94,8 @@ void SPI1_Init(void){
 	SPI1->CR1 &= ~SPI_CR1_CPOL; 
 	SPI1->CR1 &= ~SPI_CR1_CPHA;
 	
-	// Set Baud Rate Prescaler. (Setting to 16)
+	// Set Baud Rate Prescaler. (Setting to 1)
 	SPI1->CR1 &= ~SPI_CR1_BR;
-	//SPI1->CR1 |= SPI_CR1_BR_2;
 	
 	// Disable Hardware CRC Calculation
 	SPI1->CR1 &= ~SPI_CR1_CRCEN;
@@ -149,7 +148,7 @@ void SPI2_Init(void) {
 	
 	// Set Baud Rate Prescaler. (Setting to 32)
 	SPI2->CR1 |= SPI_CR1_BR;
-	//SPI2->CR1 |= SPI_CR1_BR_2;
+	SPI2->CR1 |= SPI_CR1_BR_2;
 	
 	// Disable Hardware CRC Calculation
 	SPI2->CR1 &= ~SPI_CR1_CRCEN;
@@ -178,12 +177,6 @@ void SPI_Write(SPI_TypeDef * SPIx, uint8_t *txBuffer, int size) {
 		*((volatile uint8_t*)&SPIx->DR) = *txBuffer;
 		while(SPIx->SR & SPI_SR_BSY); // Wait for BSY flag cleared
 		txBuffer++;
-		/*
-		if ((SPIx->SR & SPI_SR_RXNE ) == SPI_SR_RXNE) {
-			
-		rxBuffer = *((volatile uint8_t*)&SPIx->DR);
-		rxBuffer++;
-		}*/
 	}
 }
 

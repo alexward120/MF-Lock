@@ -15,10 +15,10 @@ void Motor_GPIO_Init(void){	//pins pc5, pc6, pc8, pc9
 }
 
 
-#define DELAY 400	// delay between steps of the sequences
+#define DELAY 2	// delay between steps of the sequences in ms
 
 void Motor_delay(void) {
-	delay(2);
+	delay(DELAY);
 }
 
 void Power_North(void) {
@@ -31,7 +31,6 @@ void Power_South(void) {
 	//activate P6, deactivate P5
 	GPIOC->ODR &= ~GPIO_ODR_OD6;
 	GPIOC->ODR |= GPIO_ODR_OD5;
-
 }
 
 void Power_East(void) {
@@ -56,47 +55,6 @@ void Depower_Vertical(void) {
 	// deactivate p5 and P6
 	GPIOC->ODR &= ~GPIO_ODR_OD5;
 	GPIOC->ODR &= ~GPIO_ODR_OD6;
-
-}
-
-void Full_Stepping_Clockwise(void){
-	for (int i=0; i<512; i++) {
-		Depower_Horizontal();
-		Power_North();
-		Motor_delay();
-		
-		Depower_Vertical();
-		Power_East();
-		Motor_delay();
-		
-		Depower_Horizontal();
-		Power_South();
-		Motor_delay();
-		
-		Depower_Vertical();
-		Power_West();
-		Motor_delay();
-	}
-}
-
-void Full_Stepping_CounterClockwise(void){
-	for (int i=0; i<512; i++) {
-		Depower_Horizontal();
-		Power_North();
-		Motor_delay();
-		
-		Depower_Vertical();
-		Power_West();
-		Motor_delay();
-		
-		Depower_Horizontal();
-		Power_South();
-		Motor_delay();
-		
-		Depower_Vertical();
-		Power_East();
-		Motor_delay();
-	}
 }
 
 void Half_Stepping_Clockwise(void){
@@ -157,5 +115,4 @@ void Half_Stepping_CounterClockwise(void){
 		Depower_Vertical();
 		Motor_delay();
 	}
-
 }

@@ -21,8 +21,8 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-F:\School Stuff\MF-Lock\project.uvprojx
-Project File Date:  03/18/2023
+C:\Users\zande\Documents\School Stuff\MF-Lock\project.uvprojx
+Project File Date:  03/21/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
@@ -31,13 +31,13 @@ src/main.c(3): warning: In file included from...
 src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *           - Macros to access peripheral<92>s registers hardware
                                            ^
-src/main.c(183): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+src/main.c(211): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
                                 char newpass[4];
                                      ^
-src/main.c(70): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+src/main.c(58): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
         int flag;
             ^
-src/main.c(223): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+src/main.c(263): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
                         ILI9341_drawChar(85 + (40*i), 120, '*', COLOR_WHITE, COLOR_BLACK, 5);
                         ~~~~~~~~~~~~~~~~ ~~~^~~~~~~~
 src/main.c(6): warning: In file included from...
@@ -50,7 +50,7 @@ static void fillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornerna
 6 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=22272 RO-data=2408 RW-data=12 ZI-data=1852  
+Program Size: Code=22384 RO-data=2408 RW-data=12 ZI-data=1852  
 FromELF: creating hex file...
 ".\Objects\project.axf" - 0 Error(s), 6 Warning(s).
 
@@ -75,7 +75,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.6.0
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
